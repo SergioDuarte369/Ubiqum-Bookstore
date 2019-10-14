@@ -1,0 +1,102 @@
+   
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Sergio Duarte Bookstore</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+
+
+
+
+</head>
+
+<body>
+
+	<div class="container-fluid mainwrapper" id="vue-bookstore">
+		<div class="row">
+			<div class="col-sm-12">
+
+				<div class="logo">
+					<img src="bookstoreubi.png">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 searchFilters">
+				<div class="col-sm-2">
+					<div class="button-group">
+						<button class="button is-checked masonry-button"><img src="gridisotope-chk.png"></button>
+						<button class="button list-button"><img src="listisotope-chk.png"></button>
+					</div>
+				</div>
+				<div class="col-sm-2">
+					<div class="shuffle-button">
+						<button class="button ">shuffle</button>
+					</div>
+				</div>
+				<div class="col-sm-4">
+
+					<div id="filters" class="button-group">
+						<button class="button is-checked" data-filter="*">show all</button>
+						<button class="button"  data-filter=".es">Spanish</button>
+						<button class="button" data-filter=".en">English</button>
+
+					</div>
+				</div>
+				<div class="col-sm-4">
+					
+						<input type="text" id="quicksearch" v-model="search" placeholder="Search Book" />
+					
+				</div>
+
+
+
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<div id="msg-box">
+					Oops! No results found!
+				</div>
+				<div class="grid formatoTodosLibros">
+					<div  v-for="book in filteredBooks()" class="grid-item card">
+			<div class="content">
+						<div class="front">
+							<img :src="book.portada" alt="">
+						</div>
+						<div class="back">
+							<h5 class="bookTags">Title:</h5>
+							<h2 class="booktitle">{{ book.titulo }}</h2><hr>
+							<h5 class="bookTags">Description:</h5>
+							<h4 class="bookDesc">{{ book.descripcion }}</h4>
+							<h4 class="bookLink"><a :href="book.detalle" data-fancybox="images" :data-caption="book.titulo">Detalle</a></h4>
+						</div>
+					</div>
+
+					</div>
+
+          
+
+					<!--				<div id="mainGrid" class="grid center-block">-->
+
+					<!--				</div>-->
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="vue-bookstore.js"></script>
+</body>
+
+</html>
+
